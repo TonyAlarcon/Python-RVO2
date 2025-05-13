@@ -1,3 +1,45 @@
+
+
+## Quick Start (macOS / Apple Silicon)
+
+1. **Clone your fork**
+
+   ```bash
+   git clone git@github.com:TonyAlarcon/Python-RVO2.git
+   cd Python-RVO2
+   ```
+
+2. **Create & activate conda environment**
+   *Requires [Miniconda/Anaconda](https://docs.conda.io/en/latest/miniconda.html)*
+
+   ```bash
+   conda create -n rvo2-env python=3.8 cmake cython pip matplotlib -c conda-forge
+   conda activate rvo2-env
+   ```
+
+3. **Build the C++ extension (optional)**
+   This step compiles the RVO2 core library and Cython wrappers in-place. It can help catch errors early.
+
+   ```bash
+   export MACOSX_DEPLOYMENT_TARGET=$(sw_vers -productVersion)
+   python setup.py build_ext --inplace
+   ```
+
+4. **Install the Python package**
+   The editable install will build (if needed) and link the package into your environment.
+
+   ```bash
+   pip install -e .
+   ```
+
+5. **Run test scripts / examples**
+
+   ```bash
+   python rvo2_tests.py    # square & circle scenarios
+   ```
+
+
+
 Python bindings for Optimal Reciprocal Collision Avoidance
 ==========================================================
 
